@@ -60,7 +60,6 @@ namespace MidiGameBoi
             if (!System.IO.File.Exists("Data\\Config.json"))
                 ConfigUtil.GenerateAppConfig();
 
-            dothing();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -193,23 +192,6 @@ namespace MidiGameBoi
             StopListen();
 
             OnExitClicked?.Invoke();
-        }
-
-        void dothing()
-        {
-            var vals = Enum.GetNames(typeof(Percussion));
-            var tVals = Enum.GetValues(typeof(Percussion)).Cast<int>().ToArray();
-            var strOut = "note,pitch\n";
-
-            int ind = 0;
-            foreach(var val in vals)
-            {
-                var nVal = val.Replace("Neg", "-").Replace("Sharp", "#");
-                strOut += $"{nVal},{tVals[ind]}\n";
-                ind++;
-            }
-
-            System.IO.File.WriteAllText("tbl.txt", strOut);
         }
     }
 
