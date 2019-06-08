@@ -193,6 +193,26 @@ namespace MidiGameBoi
 
             OnExitClicked?.Invoke();
         }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void MinimiseToTrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        private void WikiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://https://github.com/bizzycola/MidiGameBoi/wiki");
+        }
+
+        private void AbouToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutMe().ShowDialog();
+        }
     }
 
     public class MidiInputOption

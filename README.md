@@ -32,3 +32,8 @@ Keyboard Notes: [Keyboard-Notes](https://github.com/bizzycola/MidiGameBoi/wiki/K
 
 Percussion Notes: [Percussion-Notes](https://github.com/bizzycola/MidiGameBoi/wiki/Percussion-Notes)
 
+---------------------------------------------
+
+My Site: [https://lchant.com](https://lchant.com)
+
+Twitter: [@Bizzycola3](https://twitter.com/Bizzycola3)
