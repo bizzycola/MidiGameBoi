@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="label1.Text" xml:space="preserve">
+    <value>This simple program was created for a friend who wanted to play 
+Minecraft on his drums. His details are below, as are mine.
+
+I created this as mostly just to see if I could, I cannot
+guarentee it'll work perfectly but if it works well for
+you, I'm glad! I hope you enjoy.
+</value>
+  </data>
 </root>
