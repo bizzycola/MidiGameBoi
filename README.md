@@ -13,11 +13,22 @@ Once you build the program, run it once and it will generate config files for yo
 There are two configuration files for this program(in the Data folder, auto generated on run if not present):
 
 ### Config.json
-This file currently contains two options: `MouseSensitivity` and `ScrollWheelClicks`. Those are probably somewhat self explainatory but I will explain anyway!
+This file currently contains 5 options:
 
 `MouseSensitivity` is how much on the X or Y axis to move the mouse on each hit of which ever note it is bound to.
 
 `ScrollWheelClicks` is how many mouse wheel 'clicks'(the clicks you feel when you scroll) to scroll the wheel per hit of the bound MIDI note.
+
+`ToggleLeftMouseClick` Causes the left mouse button to be toggled on and off by the note hit(NoteOff event will be ignored)
+
+
+`HoldLeftMouseClick` Causes the left mouse button to be held down until the binded MIDI note is triggered again. Also ignores NoteOff event.
+
+`HoldLeftMouseDelay` Number of seconds to hold the mouse button down if the above option is enabled.
+
+**Notice**: If you enabled ToggleLeftMouseButton and HoldLeftMouseButton, then the app will automatically disable HoldLeftMouseButton and log a warning to the log file. This will not overwrite your config, it will only be done internally.
+
+Enjoy!
 
 ### Binds.json
 This is the config file where you specify what midi note will be bound to what keyboard/mouse event.
