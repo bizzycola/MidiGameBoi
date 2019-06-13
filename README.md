@@ -9,6 +9,9 @@ Not much to say. I built it in Visual Studio 2019. Never checked if the project 
 
 Once you build the program, run it once and it will generate config files for you to edit.
 
+## Random Notes
+Random note #1: This app will not work at all if the Windows Task Manager has focus. Pretty sure they did that on purpose to stop annoying programs from preventing their own demise.
+
 ## Configuration
 There are two configuration files for this program(in the Data folder, auto generated on run if not present):
 
