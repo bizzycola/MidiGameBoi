@@ -149,7 +149,6 @@ namespace MidiGameBoi
                             {
                                 KeyboardUtil.MouseClick(btn, !_mouseClickOn);
                                 _mouseClickOn = !_mouseClickOn;
-                                Logger.Info("Mouse Click Toggle");
 
                                 return;
                             }
@@ -159,7 +158,6 @@ namespace MidiGameBoi
                                 _mouseClickOn = true;
 
                                 var delay = ConfigUtil.AppConfig.HoldLeftMouseDelay;
-                                Logger.Info("Mouse Delay On");
                                 DelayReleaseMouse(delay);
                             }
                         }
@@ -206,9 +204,8 @@ namespace MidiGameBoi
         {
             await Task.Delay(delay * 1000);
             KeyboardUtil.MouseClick(MouseButton.Left, true);
-            _mouseClickOn = false;
 
-            Logger.Info("Mouse Delay Off");
+            _mouseClickOn = false;
         }
 
 
