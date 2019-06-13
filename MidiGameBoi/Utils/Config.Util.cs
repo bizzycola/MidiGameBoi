@@ -24,7 +24,7 @@ namespace MidiGameBoi.Utils
         /// <summary>
         /// Loads the bind config
         /// </summary>
-        public static void LoadConfig()
+        public static bool LoadConfig()
         {
             try
             {
@@ -32,12 +32,43 @@ namespace MidiGameBoi.Utils
                 {
                     var js = new JsonSerializer();
                     Config = (BindConfigModel)js.Deserialize(sr, typeof(BindConfigModel));
+
+                    if(Config == null)
+                    {
+                        Config = new BindConfigModel();
+                        Logger.Error("Failed to load the bind config file: an unknown error occurred parsing the JSON data. Please ensure the file is formatted correctly.");
+                    }
                 }
 
                 using (var sr = File.OpenText("Data\\Config.json"))
                 {
                     var js = new JsonSerializer();
                     AppConfig = (AppConfigModel)js.Deserialize(sr, typeof(AppConfigModel));
+
+                    if(AppConfig == null)
+                    {
+                        AppConfig = new AppConfigModel()
+                        {
+                            MouseSensitivity = 15,
+                            ScrollWheelClicks = 1,
+                            HoldLeftMouseClick = false,
+                            ToggleLeftMouseClick = false,
+                            HoldLeftMouseDelay = 1
+                        };
+                        Logger.Error("AppConfig: Failed to load the app config file: an unknown error occurred parsing the JSON data. Please ensure the file is formatted correctly.");
+                    }
+
+                    if (AppConfig.HoldLeftMouseClick && AppConfig.ToggleLeftMouseClick)
+                    {
+                        AppConfig.HoldLeftMouseClick = false;
+                        Logger.Warn("AppConfig: Cannot have ToggleLeftMouseClick and HoldLeftMouseClick enabled at the same time. HoldLeftMouseClick has been disabled automatically.");
+                    }
+                    else if(AppConfig.HoldLeftMouseClick && AppConfig.HoldLeftMouseDelay < 1 || AppConfig.HoldLeftMouseDelay > 30)
+                    {
+                        AppConfig.HoldLeftMouseDelay = 1;
+                        Logger.Warn("AppConfig: Mouse hold delay must be between 1 and 30. Reset to 1.");
+                    }
+                        
                 }
 
                 KeyboardUtil.ScanCodeShort kbs;
@@ -74,10 +105,13 @@ namespace MidiGameBoi.Utils
                         Logger.Error(ex, "Failed to load bind config: ");
                     }
                 }
+
+                return true;
             }
             catch(Exception ex)
             {
                 Logger.Error(ex, "Failed to load bind config file: ");
+                return false;
             }
         }
 
@@ -176,7 +210,8 @@ namespace MidiGameBoi.Utils
                 AppConfig = new AppConfigModel()
                 {
                     MouseSensitivity = 15,
-                    ScrollWheelClicks = 1
+                    ScrollWheelClicks = 1,
+                    HoldLeftMouseDelay = 1
                 };
 
                 SaveAppConfig();

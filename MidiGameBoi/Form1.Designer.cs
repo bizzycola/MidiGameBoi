@@ -35,11 +35,14 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimiseToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noteViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abouToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadConfigFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +98,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -111,6 +115,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // minimiseToTrayToolStripMenuItem
+            // 
+            this.minimiseToTrayToolStripMenuItem.Name = "minimiseToTrayToolStripMenuItem";
+            this.minimiseToTrayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.minimiseToTrayToolStripMenuItem.Text = "Minimise to Tray";
+            this.minimiseToTrayToolStripMenuItem.Click += new System.EventHandler(this.MinimiseToTrayToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -118,12 +129,21 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // minimiseToTrayToolStripMenuItem
+            // toolsToolStripMenuItem
             // 
-            this.minimiseToTrayToolStripMenuItem.Name = "minimiseToTrayToolStripMenuItem";
-            this.minimiseToTrayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.minimiseToTrayToolStripMenuItem.Text = "Minimise to Tray";
-            this.minimiseToTrayToolStripMenuItem.Click += new System.EventHandler(this.MinimiseToTrayToolStripMenuItem_Click);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reloadConfigFilesToolStripMenuItem,
+            this.noteViewerToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // noteViewerToolStripMenuItem
+            // 
+            this.noteViewerToolStripMenuItem.Name = "noteViewerToolStripMenuItem";
+            this.noteViewerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.noteViewerToolStripMenuItem.Text = "Note Viewer";
+            this.noteViewerToolStripMenuItem.Click += new System.EventHandler(this.NoteViewerToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -137,16 +157,23 @@
             // wikiToolStripMenuItem
             // 
             this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
-            this.wikiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wikiToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.wikiToolStripMenuItem.Text = "Wiki";
             this.wikiToolStripMenuItem.Click += new System.EventHandler(this.WikiToolStripMenuItem_Click);
             // 
             // abouToolStripMenuItem
             // 
             this.abouToolStripMenuItem.Name = "abouToolStripMenuItem";
-            this.abouToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abouToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.abouToolStripMenuItem.Text = "About";
             this.abouToolStripMenuItem.Click += new System.EventHandler(this.AbouToolStripMenuItem_Click);
+            // 
+            // reloadConfigFilesToolStripMenuItem
+            // 
+            this.reloadConfigFilesToolStripMenuItem.Name = "reloadConfigFilesToolStripMenuItem";
+            this.reloadConfigFilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reloadConfigFilesToolStripMenuItem.Text = "Reload Config Files";
+            this.reloadConfigFilesToolStripMenuItem.Click += new System.EventHandler(this.ReloadConfigFilesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -187,6 +214,9 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wikiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abouToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem noteViewerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reloadConfigFilesToolStripMenuItem;
     }
 }
 
