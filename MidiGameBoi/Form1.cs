@@ -46,9 +46,12 @@ namespace MidiGameBoi
         InputDevice Device { get; set; }
 
         NotifyIcon _appIcon;
-        public Form1(NotifyIcon appIcon)
+        NoteViewer _noteViewer;
+
+        internal Form1(MidiGameBoiApp app)
         {
-            _appIcon = appIcon;
+            _appIcon = app.AppIcon;
+            _noteViewer = app.NoteViewerForm;
 
             InitializeComponent();
 
@@ -190,6 +193,7 @@ namespace MidiGameBoi
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopListen();
+            _noteViewer.CloseViewer();
 
             OnExitClicked?.Invoke();
         }
@@ -212,6 +216,19 @@ namespace MidiGameBoi
         private void AbouToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutMe().ShowDialog();
+        }
+
+        private void NoteViewerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _noteViewer.Show();
+        }
+
+        private void ReloadConfigFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ConfigUtil.LoadConfig())
+                MessageBox.Show("Config files reloaded successfully.", "Reload Config", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show($"Failed to reload config. Check log files.", "Reload Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
