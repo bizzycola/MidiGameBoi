@@ -8,12 +8,14 @@ using System.Drawing;
 using MidiGameBoi.Utils;
 using Midi;
 using NLog;
+using System.Runtime.Versioning;
 
 namespace MidiGameBoi
 {
     /// <summary>
     /// Main class for the program
     /// </summary>
+    [SupportedOSPlatform("windows6.1")]
     internal class MidiGameBoiApp : ApplicationContext
     {
         public NotifyIcon AppIcon { get { return _appIcon; } }
@@ -52,11 +54,11 @@ namespace MidiGameBoi
 
             _appIcon.DoubleClick += _appIcon_DoubleClick;
 
-            _appIcon.ContextMenu = new ContextMenu();
+            _appIcon.ContextMenuStrip = new ContextMenuStrip();
 
-            var quitItem = new MenuItem("Exit");
+            var quitItem = new ToolStripMenuItem("Exit");
             quitItem.Click += delegate { _canQuit = true; _mainForm.Close(); };
-            _appIcon.ContextMenu.MenuItems.Add(quitItem);
+            _appIcon.ContextMenuStrip.Items.Add(quitItem);
 
             _gameWindow = WindowUtil.FindWindowByTitle("Minecraft");
    
@@ -78,14 +80,14 @@ namespace MidiGameBoi
         }
 
         /// <summary>
-        /// Initalize MIDI input device if present
+        /// Initialize MIDI input device if present
         /// </summary>
         bool InitMidi(InputDevice midiIn)
         {
             midiIn.NoteOn += MidiIn_NoteOn;
             midiIn.NoteOff += MidiIn_NoteOff;
 
-            Logger.Info("Initalized MIDI device '{0}'", midiIn?.Name);
+            Logger.Info("Initialized MIDI device '{0}'", midiIn?.Name);
 
             return true;
         }
@@ -121,7 +123,7 @@ namespace MidiGameBoi
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Midi note conversion failed(keyup): ");
+                Logger.Error(ex, "Midi note conversion failed (key-up): ");
             }
         }
 
@@ -196,7 +198,7 @@ namespace MidiGameBoi
             }
             catch(Exception ex)
             {
-                Logger.Error(ex, "Midi note conversion failed(keydown): ");
+                Logger.Error(ex, "Midi note conversion failed (key-down): ");
             }
         }
 

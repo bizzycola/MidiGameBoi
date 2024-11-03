@@ -1,5 +1,7 @@
 # MidiGameBoi
-Simple, configurable, not well written .NET program to convert MIDI notes to keyboard/mouse events.
+Simple, configurable, .NET program to convert MIDI notes to keyboard/mouse events.
+
+Recently updated to run on .NET Core 9 (though still only works on Windows).
 
 ## Notice
 This software works by hooking into a Windows library to handle the fancy under the hood pretend-to-be-a-user stuff and therefore will only work on Windows machines.
@@ -45,9 +47,3 @@ The "Pitch" is the one you want. That is the MIDI pitch note. A value between 0 
 Keyboard Notes: [Keyboard-Notes](https://github.com/bizzycola/MidiGameBoi/wiki/Keyboard-Notes)
 
 Percussion Notes: [Percussion-Notes](https://github.com/bizzycola/MidiGameBoi/wiki/Percussion-Notes)
-
----------------------------------------------
-
-My Site: [https://lchant.com](https://lchant.com)
-
-Twitter: [@Bizzycola3](https://twitter.com/Bizzycola3)
